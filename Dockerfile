@@ -12,6 +12,7 @@ RUN apk add --no-cache --virtual=build-dependencies wget ca-certificates unzip &
     mv "/tmp/jdk-${JAVA_VERSION}" "/usr/lib/jvm/java-${JAVA_VERSION}-oracle" && \
     ln -s "java-${JAVA_VERSION}-oracle" "$JAVA_HOME" && \
     ln -s "$JAVA_HOME/bin/"* "/usr/bin/" && \
+    rm -f "$JAVA_HOME/lib/src.zip" && \
     apk del build-dependencies
-    
+
 WORKDIR /
